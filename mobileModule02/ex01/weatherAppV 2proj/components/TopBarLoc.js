@@ -26,6 +26,8 @@ const TopBarLoc = ( ) => {
         }
     }, [text]);
 
+    console.log(suggestions)
+
   const handleLocationPress = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
@@ -61,7 +63,7 @@ const TopBarLoc = ( ) => {
                     setSearchText(suggestion.name);
                     setSuggestions([]); // Cachez les suggestions une fois l'une d'elles sélectionnée
                 }}>
-                    {suggestion.name}, {suggestion.region}, {suggestion.country}
+                    {suggestion.name}, {suggestion.admin1}, {suggestion.country}
                 </Text>
             ))}
         </View>
